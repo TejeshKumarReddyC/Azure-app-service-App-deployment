@@ -24,7 +24,7 @@ jobs:
         with:
           python-version: '3.13'
 
-      # Local Build Section (Optional)
+      # 🛠️ Local Build Section (Optional)
       # The following section in your workflow is designed to catch build issues early on the client side, before deployment. This can be helpful for debugging and validation. However, if this step significantly increases deployment time and early detection is not critical for your workflow, you may remove this section to streamline the deployment process.
       - name: Create and Start virtual environment and Install dependencies
         run: |
@@ -41,7 +41,7 @@ jobs:
             .
             !antenv/
 
-      #  Opting Out of Oryx Build
+      # 🚫 Opting Out of Oryx Build
       # If you prefer to disable the Oryx build process during deployment, follow these steps:
       # 1. Remove the SCM_DO_BUILD_DURING_DEPLOYMENT app setting from your Azure App Service Environment variables.
       # 2. Refer to sample workflows for alternative deployment strategies: https://github.com/Azure/actions-workflow-samples/tree/master/AppService
@@ -63,9 +63,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_818C149B6E3147B99E4313D401EC038A }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_5D5CAFC0E63F466B93CBA1AB574F619C }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_64A323F235514DFE97C082D05DE0914B }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
@@ -73,3 +73,4 @@ jobs:
         with:
           app-name: 'tkkrr'
           slot-name: 'Production'
+          
