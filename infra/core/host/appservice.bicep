@@ -2,7 +2,7 @@ metadata description = 'Creates an Azure App Service in an existing Azure App Se
 param name string
 param location string = resourceGroup().location
 param tags object = {}
-
+//
 // Reference Properties
 param applicationInsightsName string = ''
 param appServicePlanId string
